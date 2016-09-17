@@ -1,0 +1,92 @@
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="471.023" height="471.023" xml:space="preserve">
+            <rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+            <g class="currentLayer"><title>Layer 1</title><g id="svg_1" class="">
+                <g id="svg_2">
+                    <path d="M297.662,349.34c-5.374-7.683-9.313-20.278-1.01-69.361c14.189-14.058,25.928-27.078,28.648-30.128l0.733-0.821    l2.368-12.976c20.311-43.728,83.158-202.962-66.84-225.785C91.88-15.559,93.441,185.748,154.925,246.148l0.525,2.881l0.741,0.821    c2.717,3.05,14.459,16.078,28.659,30.137c7.051,41.761,5.252,57.121,1.116,65.633C121.8,358.629,16.571,390.315,0,463.03h235.511    h235.513C444.069,396.463,358.006,364.295,297.662,349.34z M188.275,272.312c-1.311-1.302-2.607-2.612-3.896-3.923    c-7.867-7.983-15.356-15.97-21.596-22.947l-7.835-42.877c-0.415-2.473-0.767-4.869-1.146-7.288    c0.291-40.93,5.975-91.211,32.118-91.794l59.22,45.14v-14.719l33.117,14.719l-6.023-27.475l14.051,4.905l5.021-15.699    l-12.043-30.42l53.15,55.813c0.337,19.432-1.61,41.701-5.858,66.772l-7.851,42.923c-6.24,6.97-13.722,14.964-21.588,22.947    c-1.287,1.311-2.589,2.621-3.896,3.923c-1.318,1.318-2.649,2.621-3.983,3.928c-19.74,19.34-40.126,36.628-48.49,36.628    c-8.369,0-28.749-17.288-48.491-36.628C190.92,274.934,189.594,273.631,188.275,272.312z M240.748,424.438    c-39.134,0-70.983-18.049-70.983-40.234c0-7.182,3.565-14.314,10.307-20.622l0.894-0.842c1.659-1.459,3.486-2.869,5.458-4.204    l1.176-1.186c2.817-3.551,5.677-7.146,7.574-13.525c2.787-9.354,3.488-24.777-0.946-54.745    c17.418,16.406,36.332,31.654,46.504,31.654c10.171,0,29.086-15.248,46.502-31.654c-4.945,33.365-3.486,48.698,0.164,57.835    c1.868,4.669,4.316,7.742,6.761,10.816l0.874,0.821c2.039,1.378,3.919,2.821,5.574,4.315l0.789,0.737    c6.736,6.3,10.304,13.438,10.304,20.623C311.724,406.39,279.885,424.438,240.748,424.438z" id="svg_3"></path>
+                </g>
+            </g><g id="svg_4">
+            </g><g id="svg_5">
+            </g><g id="svg_6">
+            </g><g id="svg_7">
+            </g><g id="svg_8">
+            </g><g id="svg_9">
+            </g><g id="svg_10">
+            </g><g id="svg_11">
+            </g><g id="svg_12">
+            </g><g id="svg_13">
+            </g><g id="svg_14">
+            </g><g id="svg_15">
+            </g><g id="svg_16">
+            </g><g id="svg_17">
+            </g><g id="svg_18">
+            </g>
+            //left eyebrow
+            <rect stroke="#222222" stroke-width="2" stroke-linejoin="round" stroke-dashoffset="" fill-rule="nonzero" id="left_eyebrow" x="175.16666668653488" y="160" width="53" height="13" style="color: rgb(0, 0, 0);" class="" fill-opacity="1"></rect>
+
+            //right eyebrow
+            <rect stroke="#222222" stroke-width="2" stroke-linejoin="round" stroke-dashoffset="" fill-rule="nonzero" x="252.66666287183762" y="160" width="53" height="13" style="color: rgb(0, 0, 0);" class="" fill-opacity="1" id="right_eyebrow"></rect>
+
+            //left eye
+                <circle cx="210" cy="195" r="13" id="left_eye" class="eye"></circle>
+
+            //right eye
+                <circle cx="270" cy="195" r="13" id="right_eye" class="eye"></circle>
+
+            //nose
+            <rect stroke="#222222" stroke-width="2" stroke-linejoin="round" stroke-dashoffset="" fill-rule="nonzero" id="svg_29" x="224.66666662693024" y="236.1666669845581" width="30" height="12" style="color: rgb(0, 0, 0);" class=""></rect>
+
+            <rect stroke="#222222" stroke-width="2" stroke-linejoin="round" stroke-dashoffset="" fill-rule="nonzero" id="svg_33" x="234" y="220" width="0" height="1" style="color: rgb(0, 0, 0);"></rect>
+
+            //mouth
+            <rect stroke="#222222" stroke-width="2" stroke-linejoin="round" stroke-dashoffset="" fill-rule="nonzero" id="mouth" x="215.1666665673256" y="265.16666626930237" width="75" height="11" style="color: rgb(0, 0, 0);" class="" transform="rotate(-13.28014850616455 252.6666412353519,270.6666564941407) "></rect>
+
+            </g>
+
+            <animate
+                xlink:href="#left_eyebrow"
+                        attributeName="y"
+                        attributeType="XML"
+                        from="160"
+                        to="165"
+                        dur="1s"
+                        begin="svg_1.mouseover;"
+                        repeatCount="freeze"
+                        fill="freeze"
+                        id="left_eyebrow_animation"
+            ></animate>
+
+            <animate
+                xlink:href="#left_eyebrow"
+                attributeName="y"
+                attributeType="XML"
+                from="165"
+                to="160"
+                dur="1s"
+                begin="left_eyebrow_animation.end + 1s"
+                fill="freeze"
+                >
+            </animate>
+
+            <animate
+                xlink:href="#right_eyebrow"
+                attributeName="y"
+                from="160"
+                to="145"
+                dur="1s"
+                begin="svg_1.mouseover"
+                fill="freeze"
+                id="right_eyebrow_animation"
+            ></animate>
+
+            <animate
+                xlink:href="#right_eyebrow"
+                attributeName="y"
+                attributeType="XML"
+                from="145"
+                to="160"
+                dur="1s"
+                begin="right_eyebrow_animation.end + 1s"
+                fill="freeze"
+                >
+            </animate>
+        </svg>
