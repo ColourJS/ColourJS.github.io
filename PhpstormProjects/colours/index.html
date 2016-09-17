@@ -103,18 +103,34 @@
   <br>
   <div ng-app="" class="row">
     <div class="small-6 columns">
-      <p>Colour1: <input type="text" ng-model="colour1" style="background-color: {{colour1}}"></p>
-      <p>{{colour1}}</p>
+      <p>Colour1: <input type="text" ng-model="colour1""></p>
+      <p>Colour2: <input type="text" ng-model="colour2"></p>
 
-      <br>
+      <span class="box" style="background-color: {{colour1}}; position: absolute;"></span>
+      <span class="box" style="background-color: {{colour2}}; position: absolute; margin-left: 50%"></span>
 
-      <p>Colour2: <input type="text" ng-model="colour2" style="background-color: {{colour2}}"></p>
-      <p>{{colour2}}</p>
     </div>
 
     <div class="small-6 columns">
-      <h1>TEsting</h1>
+      <div class="box float-center" style="padding:35%; margin: auto;"></div>
     </div>
+  </div>
+
+  <div>
+    <form name="myForm" ng-controller="ExampleController">
+      <label>
+        <input type="radio" name="functionCall" ng-model="function.transition" value="transition">
+        Transition
+      </label>
+      <label>
+        <input type="radio" name="functionCall" ng-model="function.analogous" value="analogous">
+        Analogous
+      </label>
+      <label>
+        <input type="radio" name="functionCall" ng-model="function.complementary" value="complementary">
+        Complementary
+      </label>
+    </form>
   </div>
 
     <script src="js/vendor/jquery.js"></script>
