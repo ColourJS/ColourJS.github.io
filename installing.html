@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colour.JS | Welcome</title>
+  <title>Colour.JS | Installing</title>
   <link rel="stylesheet" href="css/foundation.css" />
   <script src="js/vendor/modernizr.js"></script>
   <script src="js/angular/angular.min.js"></script>
@@ -50,68 +50,23 @@
     <img src="img/colourwheel.svg" style= "width: 20%; height: 20%; display: block; margin: auto" class="float-center"/>
     <!--<img src="img/ColourJS.svg"style= "width: 50%; height: 50%; display: block; margin: auto" class="float-center"/>-->
 
-    <h1 class="text-center">Colour.JS, a library to help you manage colours</h1>
+    <h1 class="text-center">Installing</h1>
   </div>
 </div>
 
 <br>
 <div ng-app="" class="row">
-  <div class="small-6 columns">
-    <p>Colour 1: <input type="text" id="clr1" ng-model="colour1" onkeyup="makeEffect();"></p>
-    <p>Colour 2: <input type="text" id="clr2" ng-model="colour2" onkeyup="makeEffect();"></p>
-
-    <span class="box" style="background-color: {{colour1}}; position: absolute;"></span>
-    <span class="box" style="background-color: {{colour2}}; position: absolute; margin-left: 50%"></span>
-
-  </div>
-
-  <div class="small-6 columns">
-    <div class="box float-center" id="testbox" style="padding:35%; margin: auto;"></div>
+  <div class="small-12 columns">
+      
+      <ul>
+        <li>Step 1: download the small ZIP file</li>
+        <li>Step 2: extract files in your project and create links to it through HTML</li>
+        <li>Step 3: call functions as needed!</li>
+    </ul>
+    
   </div>
 </div>
 
-  <div class="row" style="margin-top:5%">
-    <div class="small-12 columns">
-      <div>
-        <input type="radio" name="functionCall" value="transition" id="transition">
-        Transition
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-        <input type="radio" name="functionCall" value="analogous" id="analogous">
-        Analogous
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-        <input type="radio" name="functionCall" value="complementary" id="complementary">
-        Complementary
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-        <input type="radio" name="functionCall" value="primary" id="primary">
-        Primary
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-        <input type="radio" name="functionCall" value="secondary" id="secondary">
-        Secondary
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-        <input type="radio" name="functionCall" value="tertiary" id="tertiary">
-        Tertiary
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-          <input type="radio" name="functionCall" value="cool" id="cool">
-          Cool Colours
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-          <input type="radio" name="functionCall" value="warm" id="warm">
-          Warm Colours
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-          <input type="radio" name="functionCall" value="average" id="average">
-          Average
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </div>
-    </div>
-  </div>  
-  
 
 <script src="js/colour.js"></script>
 <script src="js/controller.js"></script>

@@ -1,6 +1,15 @@
-body{
+body {
 	font-family: 'Raleway', sans-serif;
 }
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+	font-family: 'Raleway', sans-serif;
+}
+
 
 .box{
     margin: 0;

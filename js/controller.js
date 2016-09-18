@@ -1,6 +1,12 @@
 var transitionRadio = document.getElementById('transition');
 var analogous  = document.getElementById('analogous');
 var complementary = document.getElementById('complementary');
+var primary = document.getElementById('primary');
+var secondary = document.getElementById('secondary');
+var tertiary = document.getElementById('tertiary');
+var cool = document.getElementById('cool');
+var warm = document.getElementById('warm');
+var average = document.getElementById('average');
 
 var current_color = null;
 
@@ -62,7 +68,7 @@ var transition = function (attrs){
 
     /*console.log(increment_r)
      console.log(increment_g)
-     console.log(increment_b)	*/
+     console.log(increment_b)   */
 
     var new_color = [current_color[0] + increment_r, current_color[1] + increment_g, current_color[2] + increment_b];
 
@@ -97,17 +103,20 @@ function complementaryColour(colourInput){
 
 //Grabs a similar colour
 function analogousColour(colourInput){
-    for(rgb in ['r','g','b']) {
-        alert(rgb);
-        if (colourInput.rgb < 60)
-            colourInput.rgb += this.randomNumber(60, 90);
-        else if (colourInput.r > 195)
-            colourInput.rgb -= this.randomNumber(60, 90);
+    colourInput = hexToRgb(colourInput);
+
+    for(x = 0; x < 2; x++) {
+        if (colourInput[x] < 60)
+            colourInput[x] += this.randomNumber(60, 90);
+        else if (colourInput[x] > 195)
+            colourInput[x] -= this.randomNumber(60, 90);
         else if (this.randomNumber(0, 1) == 0)
-            colourInput.rgb += this.randomNumber(60, 90);
+            colourInput[x] += this.randomNumber(60, 90);
         else
-            colourInput.rgb -= this.randomNumber(60, 90);
+            colourInput[x] -= this.randomNumber(60, 90);
     }
+
+    return rgbToHex(colourInput);
 };
 
 //grabs a number at random in between num1 and num2
@@ -124,7 +133,7 @@ function warmColours(colourInput){
 };
 
 function isWarm(colorInput){
-    return colorInput.r >= 128;
+    return colorInput[1] >= 128;
 };
 
 //grabs a cool colour relative to the Input
@@ -135,41 +144,75 @@ function coolColours(colourInput){
 };
 
 function isCool(colourInput){
-    return colourInput.r < 128;
+    return colourInput[0] < 128;
 };
 
 //gets the in between colour between two colours
-function getInBetweenColour(colourInput1, colourInput2){
-    colourInput1.r = average([colourInput1.r,colourInput2.r]);
-    colourInput1.g = average([colourInput1.g,colourInput2.g]);
-    colourInput1.b = average([colourInput1.b,colourInput2.b]);
+function averageColour(colourInput1, colourInput2){
+    colourInput1 = hexToRgb(colourInput1);
+    colourInput2 = hexToRgb(colourInput2);
 
-    return colourInput1;
-};
-
-//grabs an array of numbers and returns the average among the array
-function average(numberArray){
-    var total = 0;
-    var arrayLength = numberArray.length;
-
-    for(var i = 0; i < arrayLength; i++) {
-        total += numberArray[i];
+    for(var i = 0; i < colourInput1.length; i++){
+        colourInput1[i] = Math.round((colourInput1[i] + colourInput2[i])/2);
     }
-    return avg = total / arrayLength;
-
+    return rgbToHex(colourInput1);
 };
 
-function getClosesTertiaryColour(colourInput){
-    var rgb;
-    for(rgb in ['r','g','b']) {
-        if (colourInput.rgb < 64)
-            colourInput.rgb = 0;
-        else if (colourInput.rgb > 192)
-            colourInput.rgb = 255;
+//returns black,white,red,green, or blue
+function getClosesPrimaryColour(colourInput){
+    colourInput = getClosesSecondaryColour(colourInput);
+
+    colourInput = hexToRgb(colourInput);
+
+    if(colourInput[0] == 255 && colourInput[1] == 0 && colourInput[2] == 0)
+        return rgbToHex(colourInput);
+    else if(colourInput[0] == 0 && colourInput[1] == 255 && colourInput[2] == 0)
+        return rgbToHex(colourInput);
+    else if(colourInput[0] == 0 && colourInput[1] == 0 && colourInput[2] == 0)
+        return rgbToHex(colourInput);
+    else if(colourInput[0] == 255 && colourInput[1] == 255 && colourInput[2] == 0){
+        colourInput[0] = 0;
+        return rgbToHex(colourInput);
+    }
+    else if(colourInput[0] == 0 && colourInput[1] == 255 && colourInput[2] == 255){
+        colourInput[1] = 0;
+        return rgbToHex(colourInput);
+    }
+    else if(colourInput[0] ==255 && colourInput[1] == 0 && colourInput[2] == 255){
+        colourInput[2] = 0;
+        return rgbToHex(colourInput);
+    }
+
+    return rgbToHex(colourInput)
+};
+
+//grabs closes secondary colour
+function getClosesSecondaryColour(colourInput){
+    colourInput = hexToRgb(colourInput);
+
+    for(x = 0; x < 2; x++){
+        if(colourInput[x] > 128)
+            colourInput[x] = 255;
         else
-            colourInput.rgb = 128;
+            colourInput[x] = 0;
     }
-    return colourInput;
+
+    return rgbToHex(colourInput);
+};
+
+//gets the closes tertiary colour
+function getClosesTertiaryColour(colourInput){
+    colourInput = hexToRgb(colourInput);
+
+    for(x = 0; x < 2; x++){
+        if (colourInput[x] < 64)
+            colourInput[x] = 0;
+        else if (colourInput[x] > 192)
+            colourInput[x] = 255;
+        else
+            colourInput[x] = 128;
+    }
+    return rgbToHex(colourInput);
 };
 
 function makeEffect(){
@@ -180,9 +223,20 @@ function makeEffect(){
             if(color1.value == color2.value) clearTimeout(intval);
         }, 10);
     } else if (analogous.checked && color1.value.length == 7){
-        var clr = analogous(color1.value);
-        box.style.backgroundColor = clr;
+        box.style.backgroundColor = analogousColour(color1.value);
     } else if (complementary.checked && color1.value.length == 7){
         box.style.backgroundColor = complementaryColour(color1.value);
+    } else if(tertiary.checked && color1.value.length == 7){
+        box.style.backgroundColor = getClosesTertiaryColour(color1.value);
+    } else if(secondary.checked && color1.value.length == 7){
+        box.style.backgroundColor = getClosesSecondaryColour(color1.value);
+    } else if(primary.checked && color1.value.length == 7){
+        box.style.backgroundColor = getClosesPrimaryColour(color1.value);
+    } else if(cool.checked && color1.value.length == 7){
+        box.style.backgroundColor = coolColours(color1.value);
+    } else if(warm.checked && color1.value.length == 7){
+        box.style.backgroundColor = warmColours(color1.value);
+    } else if(average.checked && color1.value.length == 7 && color2.value.length == 7){
+        box.style.backgroundColor = averageColour(color1.value,color2.value);;
     }
 }
