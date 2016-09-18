@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
-    <script src="js/colour.js"></script>
     <script src="js/angular/angular.min.js"></script>
-    <script src="js/controller.js"></script>
   </head>
 
   <body>
@@ -18,93 +16,15 @@
       <img src="img/colourwheel.svg" style= "width: 20%; height: 20%; display: block; margin: auto" class="float-center"/>
       <!--<img src="img/ColourJS.svg"style= "width: 50%; height: 50%; display: block; margin: auto" class="float-center"/>-->
 
-      <h1 class="text-center">ColourJS is a JavaScript file that manages Colours.</h1>
+      <h1 class="text-center">ColourJS is a library that helps you manage colours.</h1>
     </div>
   </div>
 
-
-  <!--Top Bar-->
-  <!--<div class="top-bar">-->
-    <!--<div class="top-bar-title">-->
-    <!--<span data-responsive-toggle="responsive-menu" data-hide-for="medium">-->
-      <!--<button class="menu-icon dark" type="button" data-toggle></button>-->
-    <!--</span>-->
-      <!--<strong>  <div class="row">-->
-        <!--<div class="large-12 columns" style="width: 5%;height: 5%;">-->
-          <!--&lt;!&ndash;<img src="img/ColourJS.svg"/>&ndash;&gt;-->
-          <!--<img src="img/colourwheel.svg"/>-->
-
-        <!--</div>-->
-      <!--</div>Colours</strong>-->
-    <!--</div>-->
-    <!--<div id="responsive-menu">-->
-      <!--<div class="top-bar-left">-->
-        <!--<ul class="dropdown menu" data-dropdown-menu>-->
-          <!--<li>-->
-            <!--<a href="#">One</a>-->
-            <!--<ul class="menu">-->
-              <!--<li><a href="#">One</a></li>-->
-              <!--<li><a href="#">Two</a></li>-->
-              <!--<li><a href="#">Three</a></li>-->
-            <!--</ul>-->
-          <!--</li>-->
-          <!--<li><a href="#">Two</a></li>-->
-          <!--<li><a href="#">Three</a></li>-->
-        <!--</ul>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-
-  <!--<div class="row">-->
-    <!--<div class="large-12 columns" style="width: 20%;height: 20%;">-->
-      <!--&lt;!&ndash;<img src="img/ColourJS.svg"/>&ndash;&gt;-->
-      <!--<img src="img/colourwheel.svg"/>-->
-
-    <!--</div>-->
-  <!--</div>-->
-  <!--body-->
-    <!--<div class="row">-->
-
-
-
-
-
-  <!--<div class="small-12 large-2 columns">-->
-        <!--<h1>Testing </h1>-->
-  <!--</div>-->
-
-  <!--<div class="small-12 large-8 columns">-->
-        <!--<h1>Testing</h1>-->
-  <!--</div>-->
-
-  <!--<div class="small-12 large-2 columns">-->
-    <!--<ul class="vertical menu" data-accordion-menu>-->
-      <!--<li>-->
-        <!--<a href="#">Item 1</a>-->
-        <!--<ul class="menu vertical nested">-->
-          <!--<li><a href="#">Item 1A</a></li>-->
-          <!--<li><a href="#">Item 1B</a></li>-->
-        <!--</ul>-->
-      <!--</li>-->
-      <!--<li><a href="#">Item 2</a></li>-->
-    <!--</ul>-->
-  <!--</div>-->
-
-
-
-  <!--<div ng-app="myShoppingList" ng-controller="myCtrl">-->
-    <!--<ul>-->
-      <!--<li ng-repeat="x in products">{{x}}<span ng-click="removeItem($index)">×</span></li>-->
-    <!--</ul>-->
-    <!--<input ng-model="addMe">-->
-    <!--<button ng-click="addItem()">Add</button>-->
-    <!--<p>{{errortext}}</p>-->
-  <!--</div>-->
   <br>
   <div ng-app="" class="row">
     <div class="small-6 columns">
-      <p>Colour1: <input type="text" ng-model="colour1""></p>
-      <p>Colour2: <input type="text" ng-model="colour2"></p>
+      <p>Colour1: <input type="text" id="clr1" ng-model="colour1" onkeyup="makeEffect();"></p>
+      <p>Colour2: <input type="text" id="clr2" ng-model="colour2" onkeyup="makeEffect();"></p>
 
       <span class="box" style="background-color: {{colour1}}; position: absolute;"></span>
       <span class="box" style="background-color: {{colour2}}; position: absolute; margin-left: 50%"></span>
@@ -112,27 +32,29 @@
     </div>
 
     <div class="small-6 columns">
-      <div class="box float-center" style="padding:35%; margin: auto;"></div>
+      <div class="box float-center" id="testbox" style="padding:35%; margin: auto;"></div>
     </div>
   </div>
 
   <div>
     <form name="myForm" ng-controller="ExampleController">
       <label>
-        <input type="radio" name="functionCall" ng-model="function.transition" value="transition">
+        <input type="radio" name="functionCall" value="transition" id="transition">
         Transition
       </label>
       <label>
-        <input type="radio" name="functionCall" ng-model="function.analogous" value="analogous">
+        <input type="radio" name="functionCall" value="analogous" id="analogous">
         Analogous
       </label>
       <label>
-        <input type="radio" name="functionCall" ng-model="function.complementary" value="complementary">
+        <input type="radio" name="functionCall" value="complementary" id="complementary">
         Complementary
       </label>
     </form>
   </div>
 
+    <script src="js/colour.js"></script>
+    <script src="js/controller.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
