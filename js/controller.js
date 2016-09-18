@@ -14,7 +14,7 @@ function hexToRgb(hex) {
         parseInt(result[1], 16), /*r*/
         parseInt(result[2], 16), /*g*/
         parseInt(result[3], 16), /*b*/
-        ] : null;
+    ] : null;
 }
 
 function rgbToHex(rgb) {
@@ -42,8 +42,8 @@ var transition = function (attrs){
 
     var new_color;
 
-/*    console.log(first)
-    console.log(second)*/
+    /*    console.log(first)
+     console.log(second)*/
 
     var diff_r = second[0] - first[0];
     var diff_g = second[1] - first[1];
@@ -61,8 +61,8 @@ var transition = function (attrs){
     var increment_b = diff_b == 0 ? 0 : diff_b/max_diff;
 
     /*console.log(increment_r)
-    console.log(increment_g)
-    console.log(increment_b)	*/
+     console.log(increment_g)
+     console.log(increment_b)	*/
 
     var new_color = [current_color[0] + increment_r, current_color[1] + increment_g, current_color[2] + increment_b];
 
@@ -86,18 +86,33 @@ function max(r,g,b) {
 
 //Grabs the complementarty colour
 function complementaryColour(colourInput){
-    var colurInput = hexToRgb(colourInput);
+    colourInput = hexToRgb(colourInput);
 
-    colourInput.r = 255 - colourInput.r;
-    colourInput.g = 255 - colourInput.g;
-    colourInput.b = 255 - colourInput.b;
+    colourInput[0] = 255 - colourInput[0];
+    colourInput[1] = 255 - colourInput[1];
+    colourInput[2] = 255 - colourInput[2];
 
-    return colourOutput;
+    return rgbToHex(colourInput);
 };
 
 //Grabs a similar colour
 function analogousColour(colourInput){
+    for(rgb in ['r','g','b']) {
+        alert(rgb);
+        if (colourInput.rgb < 60)
+            colourInput.rgb += this.randomNumber(60, 90);
+        else if (colourInput.r > 195)
+            colourInput.rgb -= this.randomNumber(60, 90);
+        else if (this.randomNumber(0, 1) == 0)
+            colourInput.rgb += this.randomNumber(60, 90);
+        else
+            colourInput.rgb -= this.randomNumber(60, 90);
+    }
+};
 
+//grabs a number at random in between num1 and num2
+function randomNumber(min, max){
+    return Math.floor(Math.random()*(max-min+1)+min);
 };
 
 //grabs a warm colour relative to the Input
@@ -158,17 +173,16 @@ function getClosesTertiaryColour(colourInput){
 };
 
 function makeEffect(){
-	if(color1.value.length == 7 && color2.value.length == 7){
-		if(transitionRadio.checked){
-			var intval = setInterval(function(){
-				var clr = transition({a:color1.value, b:color2.value, time:1});
-				box.style.backgroundColor = clr;
-				if(color1.value == color2.value) clearTimeout(intval);
-			}, 10);
-		} else if (analogous.checked){
-			console.log(1)
-		} else if (complementary.checked){
-			console.log(1)
-		}
-	}
+    if(color1.value.length == 7 && color2.value.length == 7 && transitionRadio.checked){
+        var intval = setInterval(function(){
+            var clr = transition({a:color1.value, b:color2.value, time:1});
+            box.style.backgroundColor = clr;
+            if(color1.value == color2.value) clearTimeout(intval);
+        }, 10);
+    } else if (analogous.checked && color1.value.length == 7){
+        var clr = analogous(color1.value);
+        box.style.backgroundColor = clr;
+    } else if (complementary.checked && color1.value.length == 7){
+        box.style.backgroundColor = complementaryColour(color1.value);
+    }
 }
