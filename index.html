@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Foundation | Welcome</title>
-  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/foundation.css" />
   <script src="js/vendor/modernizr.js"></script>
   <script src="js/angular/angular.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
@@ -69,22 +70,30 @@
   </div>
 </div>
 
-<div>
-  <form name="myForm" ng-controller="ExampleController">
-    <label>
+  <div class="row" style="margin-top:5%">
+    <div class="small-12 columns">
+      <div>
       <input type="radio" name="functionCall" value="transition" id="transition">
       Transition
-    </label>
-    <label>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <input type="radio" name="functionCall" value="analogous" id="analogous">
       Analogous
-    </label>
-    <label>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <input type="radio" name="functionCall" value="complementary" id="complementary">
       Complementary
-    </label>
-  </form>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <input type="radio" name="functionCall" value="blankA" id="blankA">
+      Blank A
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <input type="radio" name="functionCall" value="blankB" id="blankB">
+      Blank B
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <input type="radio" name="functionCall" value="blankC" id="blankC">
+      Blank C
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 </div>
+    </div>
+  </div>    
 
 <script src="js/colour.js"></script>
 <script src="js/controller.js"></script>
